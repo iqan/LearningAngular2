@@ -2,6 +2,9 @@
     <thead>
         <tr>
             <th>
+                Sr No.
+            </th>
+            <th>
                 Employee Id
             </th>  
             <th>
@@ -10,10 +13,26 @@
             <th>
                 Designation
             </th>
+            <th>
+                First
+            </th>
+            <th>
+                Last
+            </th>
+            <th>
+                Odd
+            </th>
+            <th>
+                Even
+            </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of employeeList">
+        <tr *ngFor="let employee of employeeList; let i=index; trackBy:trackById; 
+            let isFirst=first; let isLast=last; let isOdd=odd; let isEven=even; ">
+            <td>
+                {{i}}
+            </td>
             <td>
                 {{employee.employeeId}}
             </td>
@@ -23,12 +42,25 @@
             <td>
                 {{employee.designation}}
             </td>
+            <td class="true false" [class.true]="isFirst" [class.false]="!isFirst">
+                {{isFirst}}
+            </td>
+            <td class="true false" [class.true]="isLast" [class.false]="!isLast">
+                {{isLast}}
+            </td>
+            <td class="true false" [class.true]="isOdd" [class.false]="!isOdd">
+                {{isOdd}}
+            </td>
+            <td class="true false" [class.true]="isEven" [class.false]="!isEven">
+                {{isEven}}
+            </td>
         </tr>
         <tr *ngIf="!employeeList || employeeList.length==0">
-            <td colspan="3">
+            <td colspan="5">
                 No employees found in list.
             </td>
         </tr>
     </tbody>    
 </table>
 <br />
+<button (click)="refreshList()">Refresh List</button> * this will add extra 2 rows but won't update existing ones.

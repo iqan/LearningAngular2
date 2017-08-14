@@ -11,3 +11,11 @@ th {
     padding: 5px;
     color:black;
 }
+.true {
+    color:white;
+    background-color:green;
+}
+.false {
+    color:white;
+    background-color:red;
+}
