@@ -1,0 +1,33 @@
+﻿<table>
+    <tr>
+        <td>
+            Employee Id
+        </td>
+        <td *ngIf="showDetails">
+            Full Name
+        </td>
+        <td *ngIf="showDetails">
+            Designation
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{employeeId}}
+        </td>
+        <td *ngIf="showDetails">
+            {{firstName}} {{lastName}}
+        </td>
+        <td *ngIf="showDetails">
+            {{designation}}
+        </td>
+    </tr>
+</table>
+<br />
+<button (click)="toggleDetails()">{{ buttonContent }}</button>
+
+<hr/>
+
+<h3>Two-way data binding!</h3>
+Name: <input [(ngModel)]="name1" /> 
+<br />
+You entered: {{name1}}
